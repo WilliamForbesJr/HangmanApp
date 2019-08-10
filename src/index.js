@@ -1,3 +1,7 @@
+import Hangman from './hangman'
+import getPuzzle from './requests'
+
+
 const puzzleEl = document.querySelector('#puzzle')
 const guessesEl = document.querySelector('#guesses')
 let game1
@@ -11,7 +15,7 @@ window.addEventListener('keypress', (e) => {
 const render = () => {
     puzzleEl.innerHTML = ''
     guessesEl.textContent = game1.statusMessage
-    
+
     game1.puzzle.split('').forEach((letter) => {
         const letterEl = document.createElement('span')
         letterEl.textContent = letter
@@ -28,15 +32,3 @@ const startGame = async () => {
 document.querySelector('#reset').addEventListener('click', startGame)
 
 startGame()
-
-// getPuzzle('2').then((puzzle) => {
-//     console.log(puzzle)
-// }).catch((err) => {
-//     console.log(`Error: ${err}`)
-// })
-
-// getCurrentCountry().then((country) => {
-//     console.log(country.name)
-// }).catch((error) => {
-//     console.log(error)
-// })
